@@ -1,4 +1,4 @@
-name: api
+name: vLLM Docker Build
 
 on:
   push:
