@@ -37,7 +37,7 @@ jobs:
         
     - name: 构建和上传Docker镜像
       run: |
-        docker build -t ${{ env.server }}/${{ env.own }}/${{ env.repo }}:${{ steps.date.outputs.date }}-action .
+        docker build -t ${{ env.server }}/${{ env.own }}/${{ env.repo }}:${{ steps.date.outputs.date }}-action . -f docker/Dockerfile
         docker push ${{ env.server }}/${{ env.own }}/${{ env.repo }}:${{ steps.date.outputs.date }}-action
         docker tag  ${{ env.server }}/${{ env.own }}/${{ env.repo }}:${{ steps.date.outputs.date }}-action ${{ env.server }}/${{ env.own }}/${{ env.repo }}
         docker push ${{ env.server }}/${{ env.own }}/${{ env.repo }}
