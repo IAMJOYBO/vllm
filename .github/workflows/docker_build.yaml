@@ -2,7 +2,7 @@ name: vLLM Docker Build
 
 on:
   push:
-    paths: ['docker/Dockerfile']
+    paths: ['docker/Dockerfile-jiangrj']
   workflow_dispatch:
     inputs:
       env:
@@ -53,7 +53,7 @@ jobs:
         
     - name: 构建和上传Docker镜像
       run: |
-        docker build -t ${{ env.server }}/${{ env.own }}/${{ env.repo }}:${{ steps.date.outputs.date }}-action . -f docker/Dockerfile
+        docker build -t ${{ env.server }}/${{ env.own }}/${{ env.repo }}:${{ steps.date.outputs.date }}-action . -f docker/Dockerfile-jiangrj
         docker push ${{ env.server }}/${{ env.own }}/${{ env.repo }}:${{ steps.date.outputs.date }}-action
         docker tag  ${{ env.server }}/${{ env.own }}/${{ env.repo }}:${{ steps.date.outputs.date }}-action ${{ env.server }}/${{ env.own }}/${{ env.repo }}
         docker push ${{ env.server }}/${{ env.own }}/${{ env.repo }}
